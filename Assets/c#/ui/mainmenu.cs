@@ -34,8 +34,18 @@ public class mainmenu : MonoBehaviour
     {
         if(quitvalue == true) 
         {   
+            startsound();
             Debug.Log("quit pressed");
             Application.Quit();           
+        } 
+    }
+    public void openoptions(bool optionsvalue)
+    {
+        if(optionsvalue == true) 
+        {   
+            startsound();
+            Debug.Log("options opening");
+            Invoke(nameof(getoptionsscreen), startdelay);          
         } 
     }
     public void startsound()
@@ -43,5 +53,8 @@ public class mainmenu : MonoBehaviour
         As.Stop();
         As.PlayOneShot(startupsound);
     }
-
+    public void getoptionsscreen()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
